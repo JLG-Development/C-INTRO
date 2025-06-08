@@ -1,0 +1,10 @@
+***VARIABLES AND DATA TYPES***
+String is a set of characters
+int == integers 
+double is used for integers with a decimal
+char is used to store a single characters
+Boolean == true or false value
+
+std == standard out put
+
+cout just prints to the screen

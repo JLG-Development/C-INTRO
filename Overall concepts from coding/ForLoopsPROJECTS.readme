@@ -1,0 +1,116 @@
+@author JLG-Development
+
+9/27/23 - 9/28/23
+
++-----------------------------------------+
+ Project1
+ Prints a design to the screen using complicated nested for loops
+ algebra explained inside of Project1.java
+ Sample output:
+ ****** //////////// ******
+ *****  //////////\\  *****
+ ****   ////////\\\\   ****
+ ***    //////\\\\\\    ***
+ **     ////\\\\\\\\     **
+ *      //\\\\\\\\\\      *
+        \\\\\\\\\\\\      
+       
+
++-----------------------------------------+ 
+ 
+ Project 2
+ Prints a design to the screen using 3 methods and nested for loops
+ Algebra is explained inside of Project2
+ 
+ +--------+
+ |   ^^   |
+ |  ^  ^  |
+ | ^    ^ |
+ |^      ^|
+ |   ^^   |
+ |  ^  ^  |
+ | ^    ^ |
+ |^      ^|
+ +--------+
+ |V      V|
+ | V    V |
+ |  V  V  |
+ |   VV   |
+ |V      V|
+ | V    V |
+ |  V  V  |
+ |   VV   |
+ +--------+
+ 
+ 
+
++-----------------------------------------+ 
+ 
+ Problem 3
+ 
+ Prints a design to the screen using 2 methods and nested for loops;
+ Algebra explained inside method.
+ +---------+
+ |    *    |
+ |   /*\   |
+ |  //*\\  |
+ | ///*\\\ |
+ | \\\*/// |
+ |  \\*//  |
+ |   \*/   |
+ |    *    |
+ +---------+
+ | \\\*/// |
+ |  \\*//  |
+ |   \*/   |
+ |    *    |
+ |    *    |
+ |   /*\   |
+ |  //*\\  |
+ | ///*\\\ |
+ +---------+
+ 
+
++-----------------------------------------+ 
+ 
+ Problem 4
+ 
+ Prints a design to the screen using nested for loops:
+ 
+|""""""""""|
+ \""""""""/
+  \""""""/
+   \""""/
+    \""/
+     ||
+    /""\
+   /""""\
+  /""""""\
+ /""""""""\
+|""""""""""|
+
+
++-----------------------------------------+ 
+ 
+ Problem 5 (Stair stepper)
+ prints a design to the screen using nested for loops and if statements
+ 
+                      o  *******
+                     /|\ *     *
+                     / \ *     *
+                 o  ******     *
+                /|\ *          *
+                / \ *          *
+            o  ******          *
+           /|\ *               *
+           / \ *               *
+       o  ******               *
+      /|\ *                    *
+      / \ *                    *
+  o  ******                    *
+ /|\ *                         *
+ / \ *                         *
+********************************
+
+
++-----------------------------------------+ 
