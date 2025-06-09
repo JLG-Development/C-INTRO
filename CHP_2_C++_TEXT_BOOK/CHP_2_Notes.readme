@@ -1,0 +1,41 @@
+@author JLG_DEVELOPMENT
+@date 2025-06-08
+
++--------------------+
+CHP_2_NOTES
++--------------------+
+
+2.1: Input
+
+All data/input obtained from the user must be stored some how.
+
+-An object is a region of memory or code that takes particular type of information and uses/modifies
+it a certain way.
+-A prompt is a a message that prompts the user to take action.
+-A statement in the program that introduces a new name into a program
+and sets aside meory for a variable is called a definetion. 
+-A string literal is is refered to charcters between qoutation marks when using cout versus a string, which
+contains a set of character values. 
+
++--------------------+
+2.2: Variables
+
+-Almost nothing of interest can be done on a computer without storing data in memory.
+-The places in which we store data is called an object.
+-A named object is called a variable.
+-Values are put into variables. Different values are not interchangable with different variables.
+-The five main variables are: String, double, int, char, bool.
+
+
+-Term list: Object, Variable, Values, String
+
++--------------------+
+2.3: Input and type
+
+-the syntax >> ("get from") will read specifically into the type of variable. 
+Similar to jave, which scanner.nextInt(); will be expecting an integer input from the user versus a String.
+
+-Example in C++ where cin>> would be sensitive too two different types of variables would be
+std::cin >> first_name >> age;. 
+The first input expect is a string (followed by enter). Then a integer followed by enter. 
+
