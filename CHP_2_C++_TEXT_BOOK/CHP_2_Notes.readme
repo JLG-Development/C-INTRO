@@ -34,8 +34,11 @@ contains a set of character values.
 
 -the syntax >> ("get from") will read specifically into the type of variable. 
 Similar to jave, which scanner.nextInt(); will be expecting an integer input from the user versus a String.
+-If an incorrect value is read into a variable it will just return to its default value.
 
 -Example in C++ where cin>> would be sensitive too two different types of variables would be
 std::cin >> first_name >> age;. 
-The first input expect is a string (followed by enter). Then a integer followed by enter. 
+The first input expected is a string, then followed by an integer. This particular scanner goes by white spaces. 
+Similar to Scanner class, in which Scanner.next() reads input by tokens (input broken by whtie space). 
+
 
