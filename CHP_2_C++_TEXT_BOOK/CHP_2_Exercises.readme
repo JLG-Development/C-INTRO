@@ -1,0 +1,93 @@
+@author JLG_DEVELOPMENT
+@date 2025-06-10
+
++----------------------------+
+Note from the author: 
+
+Important stuff understanding data types.
+Just got out of casuals today, I am now on night rotation for CQ brava schedule at the 315th on Goodfellow AFB.
+2 days on 2 days off. Its the panama schedule.
+
+
+
++----------------------------+
+CHP_2 Exercises: 
+
+2. Wite a program that converts miles in to kilometers. Your program should have a reasonable prompt for
+the user to enter a number of miles. Hint: a mile is 1.609 kilometers.
+
+    I wrote the user prompts in MilesToKilo and did the conversion and valid input check in convert.
+    In convert I checked to make sure the input was > 0. After which, I just returned input / 1.609.
+
+    *NOTE* Do not try to input less than 0, I will personally throw the exception at your face.
+
+*****MilesToKilo() and convert() were used to solve this exercise.
+
+4. Write a program that prompts the user to enter two integer values. Store these values in it variables
+    name val1 and val2. Write your program to determine the smaller, larger, sum, difference, product,
+    and ratio of these values and report them to the user.
+
+    The answer to this exercise is to use if statements, and a bool variables. Everything else is 
+    self explanatory. For difference(subtract) and ratio(divide) I assumed do to the unspecified order in
+    values are input that the integers should be of a positive value, and that the larger integer is to be
+    divided by the smaller integer. Using if statements if found which integer was larger, set the variable "bigger"
+    to either true or false, and executed the math based on which variable was bigger.
+
+**** This exercise was solved in the function twoValues() (line 28).
+
+
+5. Modify the program aboce to ask the user to enter a floating point values and store them in double
+    variables. Compare the outputs of the two programs for some inputs of your choice. Are the results the same?
+    Should they be? What's the difference?
+
+    Some of the major difference automatically was the output for two unevenly divisble numbers was a floating point
+    number. These are common expected differences. There is another issue that can commonly occur when
+    dividing/multiplication of floating point numbers is called precision loss error, where tiny rounding errors
+    occur, even when the numbers should be evenly divisible or become whole numbers when multiplied.
+    Integers are hard set in there ways and as far as I know these errors do not occur in the variable type. 
+
+****Solved in function twoValues2() (Line ___).
+
+
+6. Write a program that prompts the user to enter three integer values, and then outputs the values in
+numerical sequence seperated by commas. So if the user enters the values 10, 4, 6, the output should
+be 4, 6, 10. If two values are the same, they should just be ordered together. So, the input 4, 5, 4, 
+should out put 4, 4, 5. 
+
+    The solution I found was to use nest if statements to determine the order of the values.
+    There is 9 possible orientations for these numbers, I just check for all 9 possible orientations in 
+    the if statemetns and print the correct 1. There are 3 possible cases for orientation if two of the values
+    are the same, and 1 possible orientation for all three being the same. So in total 13 cases are checked for
+    by the if statements to ensure correct orientation. This is by no means scalable. But using a sorting algorithm
+    is well beyond the scope of this chapter. However, We can hard code a "similar to bubble sort" if statement tree 
+    that swaps the values using temporary variable. This require only 3 if statements as well. But this was the
+    suggestion of chatgbt, so I will code both. The bubble sort was my idea as well. I just didnt think of the
+    temporary value. It is the credit of chat gbt.
+
+    P.S. I am never hardcoding another if tree that complicated ever again
+
+****Solved in function hardCodedBubbleSort() (Line ___).
+****ChatGBT Suggested function sort3Val() (Line ___).
+
+
+7. Do exercise 6, but with 3 string values. So, if the user enters the values Steinbeck, Hemingway,
+    Fitzgerald. The output should be Fitzgerald, Hemingway, Steinbeck.
+
+    To rpduce this out put, three strings to recieve input was established. Then we simply compare
+    the first letter in each string using the same if tree we used for sorting with chatgbt. 
+
+    -Does not work if there is not uniformity in upeer or lower case of the first letter across all three string.
+    -Must be noted that it is comparing unicode values, not alphabetical order, which is why the uppercase/lowercase
+        is an issue. Uppercase 'A' has a different unicode value than lowercase 'a'.
+    -Cannot not be the same first letter. 
+
+****Solved in function sort3Literal() (Line ___).
+
+
+8. Write a program to test an integer value to determine if it is odd or even. As always, make sure your
+    output is clear and complete. In other words, dont just output yes or no. Your output should stand alone,
+    like "The value 4 is an even number.". Hint: See the remained operator in modulo 2.4
+
+    
+
+    
