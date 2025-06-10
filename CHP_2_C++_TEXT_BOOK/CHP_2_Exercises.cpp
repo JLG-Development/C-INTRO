@@ -10,6 +10,8 @@ void sort3Val();
 void sort3Literal();
 void testRemainder();
 void exercise10();
+void exercise11();
+void exercise11Helper(int num, std::string literal1, std::string literal2);
 
 int main(){
     
@@ -27,7 +29,9 @@ int main(){
     //std::cout << "\n+-----------------------------+\n";
     //testRemainder();
     //std::cout << "\n+-----------------------------+\n";
-    exercise10();
+    //exercise10();
+    //std::cout << "\n+-----------------------------+\n";
+    exercise11();
 }
 
 //chp_2 exercise 2 solution
@@ -234,7 +238,7 @@ void testRemainder(){
 }
 //chp_2 exercise 9
 void exercise9(){
-    std::string input = "";
+    std::string input = "";//input from the user spelling out a particular number
     std::cout << "Please spell out a number 0 - 4: ";
     std::cin >> input;
 
@@ -261,14 +265,15 @@ void exercise9(){
 }
 //chp_2 exercise10
 void exercise10(){
-    std::string sign = "";
-    double operand1 = 0;
-    double operand2 = 0;
+    std::string sign = ""; //keeps track of the operation sign input from the user
+    double operand1 = 0;//value 1 from user
+    double operand2 = 0;//value two from the user
 
     std::cout << "Please enter a mathematical operator (+, -, *, /) and two valid operands:";
     std::cin >> sign >> operand1 >> operand2;
 
     if(sign.length() > 1){
+        //switch statement only if the length of the string is one. Then search for a match on the opreation sign.
         switch(sign.at(0)){
             case '+':
                 std::cout << "The sum of " << operand1 << " and " << operand2 << " == " << operand1 + operand2;
@@ -284,6 +289,7 @@ void exercise10(){
                 }
         }
     }else{
+        //if the user decides to spell out the operation sign, search for a match and do the correspongding statements.
         if(sign == "plus"){
             std::cout << "The sum of " << operand1 << " and " << operand2 << " == " << operand1 + operand2;
         }else if(sign == "minus"){
@@ -299,8 +305,55 @@ void exercise10(){
         }
     }
 }
+//chp_2 exercise11
+void exercise11(){
+    int pennies = 0;
+    int nickels = 0;
+    int dimes = 0;
+    int quarters = 0;
+    int cents_50 = 0;
+    int dollar = 0;
+    
+    //prompting the user for the amount of each U.S. currency coin they have
+    std::cout << "How many pennies do you have: ";
+    std::cin >> pennies;
+    std::cout << "How many nickels do you have: ";
+    std::cin >> nickels;
+    std::cout << "How many dimes do you have: ";
+    std::cin >> dimes;
+    std::cout << "How many quarters do you have: ";
+    std::cin >> quarters;
+    std::cout << "How many 50 cent coins do you have: ";
+    std::cin >> cents_50;
+    std::cout << "How many dollar coins do you have: ";
+    std::cin >> dollar;
 
+    std::cout << "\n\n";
+    //if tree to ensure gramtical correctness in the terminal. Per requested by the book.
+    exercise11Helper(pennies, "penny", "pennies");
+    exercise11Helper(nickels, "nickel", "nickels");
+    exercise11Helper(dimes, "dime", "dimes");
+    exercise11Helper(quarters, "quarter", "quarters");
+    exercise11Helper(cents_50, "50 cent coin", "pennies");
+    exercise11Helper(dollar, "dollar coin", "dollar coins");
+    std::cout << "\n\n";
 
+    //adds the total number of coins together whie simulatanesouly multiplying them to there true value in cents
+    double total = (pennies + (nickels * 5) + (dimes * 10) + (quarters * 25)
+     + (cents_50 * 50) + (dollar * 100));
+     std::cout << "The total of your coins is " << total << " cents!\n";
+    //outputs total in dollars
+    std::cout << "The value of all your coins is $" << total/100.0 << "!\n";
+
+}
+
+void exercise11Helper(int num, std::string singular, std::string plural){  
+    if(num <= 1){
+        std::cout << "You have a " << singular << "!\n";
+    }else if(num > 1){
+        std::cout << "You have " << num << " " << plural << "!\n";
+    }
+}
 
 std::string longestString(std::string a, std::string b ,std::string c){
     if(a.length() > b.length()){
