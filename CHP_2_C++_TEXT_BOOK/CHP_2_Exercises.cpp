@@ -15,22 +15,22 @@ void exercise11Helper(int num, std::string literal1, std::string literal2);
 
 int main(){
     
-   // milesToKilo();
-   // std::cout << "\n+-----------------------------+\n";
-   /* twoValues();
+    milesToKilo();
+    std::cout << "\n+-----------------------------+\n";
+    twoValues();
     std::cout << "\n+-----------------------------+\n";
     twoValues2();
     std::cout << "\n+-----------------------------+\n";
     hardCodedBubbleSort();
-    std::cout << "\n+-----------------------------+\n";*/
-    //sort3Val();
-    //std::cout << "\n+-----------------------------+\n";
-    //sort3Literal();
-    //std::cout << "\n+-----------------------------+\n";
-    //testRemainder();
-    //std::cout << "\n+-----------------------------+\n";
-    //exercise10();
-    //std::cout << "\n+-----------------------------+\n";
+    std::cout << "\n+-----------------------------+\n";
+    sort3Val();
+    std::cout << "\n+-----------------------------+\n";
+    sort3Literal();
+    std::cout << "\n+-----------------------------+\n";
+    testRemainder();
+    std::cout << "\n+-----------------------------+\n";
+    exercise10();
+    std::cout << "\n+-----------------------------+\n";
     exercise11();
 }
 
@@ -346,20 +346,12 @@ void exercise11(){
     std::cout << "The value of all your coins is $" << total/100.0 << "!\n";
 
 }
-
+//chp_2 exercise 11 helper function
 void exercise11Helper(int num, std::string singular, std::string plural){  
+    //if only 1 coin print singular for gramatical correctness
     if(num <= 1){
         std::cout << "You have a " << singular << "!\n";
-    }else if(num > 1){
+    }else if(num > 1){//if not print plural
         std::cout << "You have " << num << " " << plural << "!\n";
     }
-}
-
-std::string longestString(std::string a, std::string b ,std::string c){
-    if(a.length() > b.length()){
-        b = a; 
-    } if (b.length() > c.length()){
-        c = b;
-    }
-    return c;
 }
