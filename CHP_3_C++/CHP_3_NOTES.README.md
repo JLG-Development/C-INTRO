@@ -104,6 +104,52 @@
                 for the job.
         +------------------------------+
         3.4.1.2: switch-statements
+            -If we have a single variable against which we are comparing several constants, it is more suitable
+            to use the switch-statements.
+            -switch statements have a default:. Whic is the equiavlent of the final else in an if-statement tree.
+            -Do not forget "break" after each case or it will go through the entire tree.
 
+        +------------------------------+
+        3.4.1.3: Switch Technicalities
+            -The value on which we switch in C++ must be an integer, char, or enumeration. 
+            -The variable inside of a case label must be a const expression.
+            -You cannot use the same value for two cases.
+            -You can use several case lebels for one case.
+            -Dont forget to ass breaks after each case.
 
+            -Often we was the same action for several cases, so we can go
+                case 'n': case 't': case 'm':
+                    //do this
+                    break;
+                case 'p': 
+                    //do this
+                    break;
+            -The break is not to exit the switch statement but to exit the case. 
+                or your will fallthrough to the next case and perform whatever action is in that case as well.
+                Use [[fallthrough]]. 
+    +------------------------------+
+    3.4.2: Iteration (followed in function tryThis2())
+        -Doing the same thing to a series of objects is called iteration.
+        -we use a loop and repeat a statement a certain number of times as long as an expression is true
+        -We can demonstrate this with a while loop and by increasing a variable in the expression till the 
+          comparision is no longer true.
+          while(i < 100){
+            //do random action
+            //i++;
+          }
 
+         -block Statements: code to be executed within {}
+         -for statements
+            -specifically design to iterate over sequence of numbers. Used to get rid of the
+            while loop-method of iteration.
+
+            for(int i = 0; i < 100; i++){
+                //do random action
+            }
+
+           ****If your loop control variable can be incremented with a simple increment operation
+                use a for loop. If you need to modify the loop control with a more complex incrementing operation
+                use a while loop. Dont ever modify the loop control variable inside the body of the for loop because
+                it undermines every readers assumption about what the for loop is doing.
+
+            There is also a range for loop for traversing advanced data structures. 

@@ -14,4 +14,6 @@ Syllabus
         through out a program.
 
 +------------------------------+
-    Advanced operators:
+    [[fallthrough]]
+    -Allows falling through into the next case in a switch-statement tree intentionally.
+    
