@@ -8,14 +8,18 @@
 #include <iostream>
 
     void tryThis1();
-    void curConvOutput(double numOfCurrency, double rate, std::string currency1, std::string currency2, bool tick);
     void tryThis2();
     void tryThis3();
+    void tryThis4();
+
+    void curConvOutput(double numOfCurrency, double rate, std::string currency1, std::string currency2, bool tick);
+    int square(int num);
 
 int main(){
     //tryThis1();
     //tryThis2();
-    tryThis3();
+    //tryThis3();
+    tryThis4();
 }
 
 //mock conversion table from non interchangable currency conversions
@@ -94,6 +98,19 @@ void tryThis3(){
    }
 }
 
+//3.5.1
+//method that using addition to square numbers
+void tryThis4(){
+  std::cout << "3000 squared == " << square(300);
+}
+
+int square(int num){
+    int temp = 0;
+    for(int i = 0; i < num; i++){
+        temp += num;
+    }
+    return temp;
+}
 
 
 

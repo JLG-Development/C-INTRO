@@ -153,3 +153,12 @@
                 it undermines every readers assumption about what the for loop is doing.
 
             There is also a range for loop for traversing advanced data structures. 
+    
++----------------------------------+
+3.5: Functions
+    -A function is a named secuence of statements, and can return a result
+    -The standard library contains a lot of useful functions
+    -Functions should be used to create computation blocks, this created high-cohesion (each part works together well) and low coupling (compenents dont overly depend on each other)
+    -The different parts of a program need to be clearly named and seperated. 
+***Programs are easier to understand if each function performs a single logical action. 
+    
