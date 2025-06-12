@@ -6,11 +6,15 @@
  */
 
 #include <iostream>
+#include <vector>
+#include <string>
 
     void tryThis1();
     void tryThis2();
     void tryThis3();
     void tryThis4();
+    void tryThis5();
+    std::string bleepWord(std::string input);
 
     void curConvOutput(double numOfCurrency, double rate, std::string currency1, std::string currency2, bool tick);
     int square(int num);
@@ -19,7 +23,8 @@ int main(){
     //tryThis1();
     //tryThis2();
     //tryThis3();
-    tryThis4();
+    //tryThis4();
+    tryThis5();
 }
 
 //mock conversion table from non interchangable currency conversions
@@ -102,6 +107,42 @@ void tryThis3(){
 //method that using addition to square numbers
 void tryThis4(){
   std::cout << "3000 squared == " << square(300);
+}
+
+//checks data to see if input is a bad word.
+void tryThis5(){
+    std::cout << "Function called successfully\n";
+
+    bool bleep = false;
+    std::vector<std::string> v = {"democrat" , "biden", "glass", "water"};
+
+    //std::cout << "In the loop\n";
+    for(std::string temp; std::cin >> temp;){//run as long s valid input is given.
+
+        for(int i = 0; i < v.size(); i++){//check each element in vector for a match
+            //std::cout << "loop is working\n";
+
+            if(temp == v.at(i)){
+                std::cout << bleepWord(v.at(i)) << " is a bad word!!";
+                bleep = true;
+            //has been determined to be a bad word, and is it the last iteration
+            }else if(!bleep && i == v.size() - 1){
+                std::cout << temp << " is a good word!";
+            }
+        }
+        std::cout << "\n";
+        bleep = false;
+    }
+
+}
+
+//just returns a string with star equal to amount in the string.
+std::string bleepWord(std::string input){
+    std::string output= "";
+    for(int j = 0; j < input.length(); j++){//create a number of starts
+         output += "*";
+    }
+    return output;
 }
 
 int square(int num){

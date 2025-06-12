@@ -4,7 +4,7 @@
 @Description: Notes from CHP_3 of Programming: Principles and Practice Using C++, Bjarne Stroustrup
 
 
-+------------------------------+
+---------------------------
 3.1 Computation
 
 -Most programs can be boiled down to input/output
@@ -19,7 +19,7 @@
     input/output often refers to information coming into and out of a program, also known as arguments and results.
     This is what computation is.
 
-+------------------------------+
+---------------------------
 3.2 Objectives and tools
 
     -Our primary jobs as programs is to express computations
@@ -46,7 +46,7 @@
     it can be done, but you will never reach the tenth floor.
 
 
-+------------------------------+
+---------------------------
 3.3 Expressions
 
     -An EXPRESSION is mearly something that computes values.  
@@ -59,14 +59,14 @@
     -Overuse of parenthesis reduse readbility and create ugly code, which makes code harder to read and even worse,
     harder to debug. Break expression down and keep readability a priority.
 
-    +------------------------------+
+    ---------------------------
     3.3.1: Constant Expressions
 
     -Most programs have variables with values that will never change. These are call constants.
     -Instead of hardcoding constant expression into the code, create a constant variable that will allow change when
         needed.
     
-    +------------------------------+
+    ---------------------------
     3.3.2
     Advanced operators
     Theres a shit ton more operators. Multiple full lists online.
@@ -74,7 +74,7 @@
     a = 1 is the same as a = a + 1
     etc.
 
-+----------------------------------+
+---------------------------
 3.4: Statements
 
     -Declartion statement Initializes or declares a variable.
@@ -91,25 +91,25 @@
             z = 3;
     The if statement is looking to execute the next statement conditionally, which is the semi colon after the if statement. z = 3 will always execute in this code. 
 
-    +------------------------------+
+    ---------------------------
     3.4.1: Selection
         -If-statements and switch-statements are used to select among alternatives. AKA. forms of selection.
 
-        +------------------------------+
+        ---------------------------
         3.4.1.1: if-statements
             -if-statements are the simpelest form of selection in C++. Some use if-statements to simple mindedly.
             -Check for multiple cases in depth and always prepare for garbage input from the users, build to 
                 handle it. 
             -Remember more complex does not equal smarter. Demonstrate competence by creating the most simple code
                 for the job.
-        +------------------------------+
+        ---------------------------
         3.4.1.2: switch-statements
             -If we have a single variable against which we are comparing several constants, it is more suitable
             to use the switch-statements.
             -switch statements have a default:. Whic is the equiavlent of the final else in an if-statement tree.
             -Do not forget "break" after each case or it will go through the entire tree.
 
-        +------------------------------+
+        ---------------------------
         3.4.1.3: Switch Technicalities
             -The value on which we switch in C++ must be an integer, char, or enumeration. 
             -The variable inside of a case label must be a const expression.
@@ -127,7 +127,7 @@
             -The break is not to exit the switch statement but to exit the case. 
                 or your will fallthrough to the next case and perform whatever action is in that case as well.
                 Use [[fallthrough]]. 
-    +------------------------------+
+    ---------------------------
     3.4.2: Iteration (followed in function tryThis2())
         -Doing the same thing to a series of objects is called iteration.
         -we use a loop and repeat a statement a certain number of times as long as an expression is true
@@ -154,7 +154,7 @@
 
             There is also a range for loop for traversing advanced data structures. 
     
-+----------------------------------+
+---------------------------
 3.5: Functions
     -A function is a named secuence of statements, and can return a result
     -The standard library contains a lot of useful functions
