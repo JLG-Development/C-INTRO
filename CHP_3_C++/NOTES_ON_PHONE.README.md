@@ -1,3 +1,14 @@
+@author JLG_DEVELOPEMENT
+@date 2025-06-12
+
+*Note from the author*
+
+Doing this from cq right now. first night on from 1800 - 0600.
+planning is moving forward aggressively. unless I heal quickly at which point I will be switching gears again. but not for a while.
+
+---------------------------
+
+
 3.6
 
 -vector is a simple and one of the most useful ways to store data
@@ -50,7 +61,10 @@ object-name.member-function-name(arguments list)
 
 -if safe to say that Vectors have a very wide use of applications in the world. If you need to analyze data, you will probably use a vector.
 
-***range for loops executes vector.size() times while simultaneously assigning int num = vector[x], x being whatever iteration < vector.size()
+***range for loops executes vector.size() times while simultaneously assigning int num = vector[x], x being whatever iteration < vector.size()*** 
+
+
+-----------------
 
 
 
