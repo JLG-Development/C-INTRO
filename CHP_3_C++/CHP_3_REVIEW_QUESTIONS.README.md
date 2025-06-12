@@ -22,35 +22,64 @@ I was on cq at the 315th TRS.
     computation, a singluar statement (1 line expression)) that handles and changes input data to produce
     desired output data.
 
+    Examples: -input data ---> 609
+              -Function call square() with 609 submitted as a parameter
+              -square(609) reutrns 609^2(== 370,881)
+
+    Example2: -input data ---> vector with 100 random integers
+              -Function(computation) bubbleSort(vector) is called
+              -bubbleSort(vector) sorts the vectors using a coed buble sort algorithm &
+                returns the sorted vector.
+
 
 [3] What are the three requirements a programmer should keep in mind when expression computations?
 
 
 [4] What does an expresion do?
 
+    An expression is merely a mathematical computation.
+
 
 [5] What is the difference between a statement and an expression, as described in this chapter?
+
+    An expression is a mathematical computation while a statement just refers to some action. Statements can be logical checks, functions calls, declaration, etc. Its scope is broader
 
 
 [6] What is an lvalue? List the operators that require an lvalue. Why do these operators, and not the others, require an lvalue?
 
 
+
 [7] What is a constant expression?
+
+    A constant expression is a var whols value is can be calculated at compile time. Not to be confused with
+    a constant, which can be can determined at run time or compile time.
 
 
 [8] What is a literal?
 
+    A literal is a value or data unassigned and unamed in the code but still has a type. Often used to
+    initalize variables. Examples: 1, "abcd", 9.34
+
 
 [9] What is a symbolic constant and why do we use them?
+
+    "A symbolic constant is a name that represents a fixed value, so it can be used symbollically in code
+    instead of repeating the literal." - ChatGBT
 
 
 [10] What is a magic constant?
 
+    A magic constant is a unobvious(i.e not just number 1) literal value used multiple times in code to calculate computations but is not assigned a variable or a name. An example is using the speed of light multiple times
+    but not assigned it to a constant expression variable such as SPEED_LIGHT.
+
 
 [11] What are some operators we can use for integers and floating-point values?
 
+    Some operators that can be used both on integers and floating-point values include, +, -, *, /, ==, >, <, etc.
 
 [12] What are some operatores that can be used on integers and not flaoting-point values?
+
+    An operator than can be used on integers and not on a floating-point values would be the modulo(%) operator.
 
 
 [13] What are some operators that can be used for strings?
