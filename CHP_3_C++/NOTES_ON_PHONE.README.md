@@ -46,7 +46,13 @@ object-name.member-function-name(arguments list)
 -Vectors are similar to arrays, but the size does not need to be mentioned in advance. They are also dynamic.
 
 -----------------
-3.6.3: numeric example
+3.6
+
+-if safe to say that Vectors have a very wide use of applications in the world. If you need to analyze data, you will probably use a vector.
+
+***range for loops executes vector.size() times while simultaneously assigning int num = vector[x], x being whatever iteration < vector.size()
+
+
 
 
 
