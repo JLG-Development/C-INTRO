@@ -105,7 +105,7 @@ double parseAndConvert(std::string input){
         if(isDigit(input.at(i)) || input.at(i) == '.'){
             unconvertedLength += input.at(i);
         //everything else assumed to be a unit of measurement
-        }else{
+        }else if(input.at(i) != 32){
             unit += input.at(i);
         }
     }
