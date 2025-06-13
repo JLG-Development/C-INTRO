@@ -1,8 +1,7 @@
 @author JLG_DEVELOPEMENT
 @GitHub: https://github.com/JLG_DEVELOPMENT
 @date 2025-06-12
-@Description: The documentation for the drill portion of CHP_3 Programming: Principles and Practice Using 
-                c++, Bjarne Stroustrup
+@Description: Domentation for drill of CHP_3 Programming: Principles and Practice Using C++, Bjarne Stroustrup
 --------------------------------
 
 ## Drill  

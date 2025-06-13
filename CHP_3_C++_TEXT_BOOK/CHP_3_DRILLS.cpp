@@ -2,7 +2,7 @@
  * @Author: JLG_DEVELOPMENT
  * @GitHub: https://github.com/JLG_DEVELOPMENT
  * @Date: 2025-06-11
- * @Description: 
+ * @Description: The drill portion of CHP_3 Programming: Principles and Practice Using C++, Bjarne Stroustrup
  */
 
 #include <iostream>
@@ -12,8 +12,12 @@ void drill1();
 void drill2();
 
 //helper methods
+
+//drill1
 void isSmaller(double x, double y);
 void areAlmostEqual(double x, double y);
+
+//drill2
 double parseAndConvert(std::string input);
 bool isDigit(char ch);
 double convertToMeters(std::string unconvertedLength, std::string unit);
