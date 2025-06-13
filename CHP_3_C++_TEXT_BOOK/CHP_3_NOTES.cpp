@@ -44,6 +44,7 @@ void tryThis1(){
     if(numOfCurrency < 0)
         std::runtime_error("Are you in debt??? CANNOT CONVERT!");
 
+    //switch statement tree that calls method to convert currency with the proper parameters
     switch(typeCurrency){
         case 'J':
             curConvOutput(numOfCurrency, JPY2NOK, "Yen(JPY)", "Kroner(NOK)", true);
@@ -81,7 +82,7 @@ void curConvOutput(double numOfCurrency, double rate, std::string currency1, std
 }
 
 //3.4.2
-//method basically aps the ASKII table
+//method basically maps the ASKII table
 void tryThis2(){
     int i = 32;
     char ch = 0;
@@ -93,7 +94,7 @@ void tryThis2(){
 }
 
 //3.4.2.3
-//method basically aps the ASKII table
+//method basically maps the ASKII table
 void tryThis3(){
     int i = 0;
     char ch = 0;
@@ -109,10 +110,8 @@ void tryThis4(){
   std::cout << "3000 squared == " << square(300);
 }
 
-//checks data to see if input is a bad word.
+//checks data to see if input is a word I deemed to be bad.
 void tryThis5(){
-    std::cout << "Function called successfully\n";
-
     bool bleep = false;
     std::vector<std::string> v = {"democrat" , "biden", "glass", "water"};
 
@@ -120,8 +119,6 @@ void tryThis5(){
     for(std::string temp; std::cin >> temp;){//run as long s valid input is given.
 
         for(int i = 0; i < v.size(); i++){//check each element in vector for a match
-            //std::cout << "loop is working\n";
-
             if(temp == v.at(i)){
                 std::cout << bleepWord(v.at(i)) << " is a bad word!!";
                 bleep = true;
@@ -136,7 +133,7 @@ void tryThis5(){
 
 }
 
-//just returns a string with star equal to amount in the string.
+//just returns a string containing stars equal to amount string.length().
 std::string bleepWord(std::string input){
     std::string output= "";
     for(int j = 0; j < input.length(); j++){//create a number of starts
@@ -145,6 +142,7 @@ std::string bleepWord(std::string input){
     return output;
 }
 
+//squares any integer
 int square(int num){
     int temp = 0;
     for(int i = 0; i < num; i++){
