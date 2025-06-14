@@ -35,7 +35,7 @@ void exercise3(){
     double median = 0.0;
     double temp = 0.0;
 
-    std::vector<double> v = {0, 2, 1, 4, 3};
+    std::vector<double> v = {1, 8, 7, 6, 5, 4, 3, 2 , 0, 9};
     /*14, 83, 38, 5, 65, 9, 62, 50, 1, 12, 31, 93, 80, 20, 95, 72, 22, 55, 43, 64,
     63, 16, 59, 7, 41, 49, 78, 71, 81, 73, 75, 46, 92, 26, 34, 24, 32, 23, 3, 60,
     33, 42, 11, 79, 10, 35, 70, 76, 45, 21, 84, 86, 18, 36, 66, 27, 90, 29, 19, 39,
@@ -65,30 +65,36 @@ void exercise3(){
     std::cout << "Median is " << median << ".\n"; 
 }
 
-//change to just set the values not insert and erase. This will eliminate the off by one error that 
-//i cant seem to fucking see.
+//
 void sortVector(std::vector<double>& v){
     double num1 = 0.0;
     double displaced = 0.0;
 
-    for(int i = 0; i < v.size(); i++){
+    for(int i = 0; i < v.size(); i++){//
 
         num1 = v[0];
         v.erase(v.begin() + 0);
 
-        for(int j = 0; j < v.size() - i; j++){
-            if(num1 < v[j]){
-                displaced = v[j];
-                v[j] = num1;
+        bool inserted = false;
+        for(int j = 1; j <= v.size() - i; j++){
+            if(num1 < v[j - 1]){
+                displaced = v[j - 1];
+                v[j - 1] = num1;
                 num1 = displaced;
-            }else if( j == v.size() - i - 1 && i != 0){
-                v.insert(v.begin() + j + 1, num1);
+            }else if(j == v.size() - i && i != 0){
+                v.insert(v.begin() + j - 1, num1);
+                inserted = true;
                 break;
-            }else if(i == 0 && j == v.size() -1){
+            }else if(i == 0 && j == v.size()){
                 v.push_back(num1);
+                inserted = true;
                 break;
             }
         }
+        if(!inserted){
+            v.insert(v.begin() + 0, num1);
+        }
        
     }
+    
 }
