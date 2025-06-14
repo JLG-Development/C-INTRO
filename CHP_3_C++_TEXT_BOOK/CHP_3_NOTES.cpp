@@ -2,7 +2,7 @@
  * @Author: JLG_DEVELOPMENT
  * @GitHub: https://github.com/JLG_DEVELOPMENT
  * @Date: 2025-06-10
- * @Description:
+ * @Description: Notes for CHP_3 Programming: Principles and Practice Using C++, Bjarne Stroustrup
  */
 
 #include <iostream>
