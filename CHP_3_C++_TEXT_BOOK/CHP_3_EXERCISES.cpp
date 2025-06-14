@@ -35,7 +35,7 @@ void exercise3(){
     double median = 0.0;
     double temp = 0.0;
 
-    std::vector<double> v = {1, 2, 3, 4};
+    std::vector<double> v = {0, 2, 1, 4, 3};
     /*14, 83, 38, 5, 65, 9, 62, 50, 1, 12, 31, 93, 80, 20, 95, 72, 22, 55, 43, 64,
     63, 16, 59, 7, 41, 49, 78, 71, 81, 73, 75, 46, 92, 26, 34, 24, 32, 23, 3, 60,
     33, 42, 11, 79, 10, 35, 70, 76, 45, 21, 84, 86, 18, 36, 66, 27, 90, 29, 19, 39,
@@ -76,30 +76,19 @@ void sortVector(std::vector<double>& v){
         num1 = v[0];
         v.erase(v.begin() + 0);
 
-        for(int j = 0; j <= v.size() - i; j++){//v <= so it actually compares to six on first iteration
-            //std::cout << "index: " << j << "(" << num1 << ")" << " -----> ";
+        for(int j = 0; j < v.size() - i; j++){
             if(num1 < v[j]){
-                std::cout << j << " swap\n";
                 displaced = v[j];
                 v[j] = num1;
                 num1 = displaced;
-            }else if(j == v.size() - i  && i != 0){
-                //std::cout << j << " inserted\n";
+            }else if( j == v.size() - i - 1 && i != 0){
                 v.insert(v.begin() + j + 1, num1);
                 break;
-            }else if(i == 0){
-                //std::cout << "index: " << v.size()-1 << "(" << num1 << ")" << " -----> inserted on end\n";
+            }else if(i == 0 && j == v.size() -1){
                 v.push_back(num1);
                 break;
-            }    
+            }
         }
-       /*
-        std::cout << "The vector: \n";
-        for(double num : v){
-            std::cout << num << ", ";
-        }
-        std::cout << "\n\n+---------------------------+\ninner loop fully iterated + " << i << "\n" ;     
-        */
+       
     }
-    v.insert(v.begin() + 0, num1);
 }
