@@ -1,10 +1,10 @@
 # Details
 
-Date : 2025-06-11 06:47:50
+Date : 2025-06-15 12:23:52
 
 Directory c:\\Users\\Jerem\\projects\\C-INTRO
 
-Total : 30 files,  1682 codes, 196 comments, 521 blanks, all 2399 lines
+Total : 35 files,  2221 codes, 248 comments, 783 blanks, all 3252 lines
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
@@ -28,9 +28,14 @@ Total : 30 files,  1682 codes, 196 comments, 521 blanks, all 2399 lines
 | [CHP\_2\_C++\_TEXT\_BOOK/CHP\_2\_REVIEW\_QUESTIONS.README.md](/CHP_2_C++_TEXT_BOOK/CHP_2_REVIEW_QUESTIONS.README.md) | Markdown | 146 | 0 | 85 | 231 |
 | [CHP\_2\_C++\_TEXT\_BOOK/CHP\_NOTES.cpp](/CHP_2_C++_TEXT_BOOK/CHP_NOTES.cpp) | C++ | 75 | 16 | 16 | 107 |
 | [CHP\_2\_C++\_TEXT\_BOOK/DRILLS.README.md](/CHP_2_C++_TEXT_BOOK/DRILLS.README.md) | Markdown | 17 | 0 | 3 | 20 |
-| [CHP\_3\_C++/CHP\_3\_DRILLS.cpp](/CHP_3_C++/CHP_3_DRILLS.cpp) | C++ | 5 | 6 | 2 | 13 |
-| [CHP\_3\_C++/CHP\_3\_NOTES.README.md](/CHP_3_C++/CHP_3_NOTES.README.md) | Markdown | 133 | 0 | 31 | 164 |
-| [CHP\_3\_C++/CHP\_3\_NOTES.cpp](/CHP_3_C++/CHP_3_NOTES.cpp) | C++ | 81 | 18 | 23 | 122 |
+| [CHP\_3\_C++\_TEXT\_BOOK/CHP\_3\_DRILL.README.md](/CHP_3_C++_TEXT_BOOK/CHP_3_DRILL.README.md) | Markdown | 103 | 0 | 51 | 154 |
+| [CHP\_3\_C++\_TEXT\_BOOK/CHP\_3\_DRILLS.cpp](/CHP_3_C++_TEXT_BOOK/CHP_3_DRILLS.cpp) | C++ | 119 | 28 | 37 | 184 |
+| [CHP\_3\_C++\_TEXT\_BOOK/CHP\_3\_EXERCISES.README.md](/CHP_3_C++_TEXT_BOOK/CHP_3_EXERCISES.README.md) | Markdown | 29 | 0 | 27 | 56 |
+| [CHP\_3\_C++\_TEXT\_BOOK/CHP\_3\_EXERCISES.cpp](/CHP_3_C++_TEXT_BOOK/CHP_3_EXERCISES.cpp) | C++ | 93 | 17 | 18 | 128 |
+| [CHP\_3\_C++\_TEXT\_BOOK/CHP\_3\_NOTES.README.md](/CHP_3_C++_TEXT_BOOK/CHP_3_NOTES.README.md) | Markdown | 133 | 0 | 31 | 164 |
+| [CHP\_3\_C++\_TEXT\_BOOK/CHP\_3\_NOTES.cpp](/CHP_3_C++_TEXT_BOOK/CHP_3_NOTES.cpp) | C++ | 108 | 25 | 28 | 161 |
+| [CHP\_3\_C++\_TEXT\_BOOK/CHP\_3\_REVIEW\_QUESTIONS.README.md](/CHP_3_C++_TEXT_BOOK/CHP_3_REVIEW_QUESTIONS.README.md) | Markdown | 100 | 0 | 83 | 183 |
+| [CHP\_3\_C++\_TEXT\_BOOK/NOTES\_ON\_PHONE.README.md](/CHP_3_C++_TEXT_BOOK/NOTES_ON_PHONE.README.md) | Markdown | 36 | 0 | 40 | 76 |
 | [NoteFromTheAuthor.README.md](/NoteFromTheAuthor.README.md) | Markdown | 19 | 0 | 5 | 24 |
 | [Overall concepts from coding/ForLoopProjects.cpp](/Overall%20concepts%20from%20coding/ForLoopProjects.cpp) | C++ | 45 | 51 | 18 | 114 |
 | [Overall concepts from coding/ForLoops.README.md](/Overall%20concepts%20from%20coding/ForLoops.README.md) | Markdown | 45 | 0 | 20 | 65 |
@@ -39,7 +44,7 @@ Total : 30 files,  1682 codes, 196 comments, 521 blanks, all 2399 lines
 | [Overall concepts from coding/StringLength.cpp](/Overall%20concepts%20from%20coding/StringLength.cpp) | C++ | 39 | 13 | 18 | 70 |
 | [Overall concepts from coding/UserInput.cpp](/Overall%20concepts%20from%20coding/UserInput.cpp) | C++ | 7 | 0 | 5 | 12 |
 | [TERMS\_AND\_USEFUL.README.md](/TERMS_AND_USEFUL.README.md) | Markdown | 15 | 0 | 4 | 19 |
-| [USEFUL\_LOGIC\_CHUNKS.cpp](/USEFUL_LOGIC_CHUNKS.cpp) | C++ | 7 | 2 | 2 | 11 |
+| [USEFUL\_LOGIC\_CHUNKS.cpp](/USEFUL_LOGIC_CHUNKS.cpp) | C++ | 44 | 8 | 5 | 57 |
 | [helloworld/HelloWorld.cpp](/helloworld/HelloWorld.cpp) | C++ | 10 | 0 | 2 | 12 |
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)

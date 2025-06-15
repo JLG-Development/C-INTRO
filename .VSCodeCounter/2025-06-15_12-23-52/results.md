@@ -1,29 +1,29 @@
 # Summary
 
-Date : 2025-06-11 06:47:50
+Date : 2025-06-15 12:23:52
 
 Directory c:\\Users\\Jerem\\projects\\C-INTRO
 
-Total : 30 files,  1682 codes, 196 comments, 521 blanks, all 2399 lines
+Total : 35 files,  2221 codes, 248 comments, 783 blanks, all 3252 lines
 
 Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| C++ | 19 | 956 | 196 | 222 | 1,374 |
-| Markdown | 11 | 726 | 0 | 299 | 1,025 |
+| C++ | 20 | 1,227 | 248 | 283 | 1,758 |
+| Markdown | 15 | 994 | 0 | 500 | 1,494 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 30 | 1,682 | 196 | 521 | 2,399 |
-| . (Files) | 3 | 41 | 2 | 11 | 54 |
+| . | 35 | 2,221 | 248 | 783 | 3,252 |
+| . (Files) | 3 | 78 | 8 | 14 | 100 |
 | Bro code lesson 1 | 1 | 32 | 5 | 11 | 48 |
 | Bro code lesson 2 | 4 | 91 | 27 | 34 | 152 |
 | CHP_1_C++_TEXT_BOOK | 5 | 204 | 2 | 71 | 277 |
 | CHP_2_C++_TEXT_BOOK | 7 | 754 | 50 | 238 | 1,042 |
-| CHP_3_C++ | 3 | 219 | 24 | 56 | 299 |
+| CHP_3_C++_TEXT_BOOK | 8 | 721 | 70 | 315 | 1,106 |
 | Overall concepts from coding | 6 | 331 | 86 | 98 | 515 |
 | helloworld | 1 | 10 | 0 | 2 | 12 |
 

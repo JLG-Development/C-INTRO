@@ -13,23 +13,36 @@
 
 [2] Write a program that reads a string from input and then, for each character read, prints out the character and its integer value on a line.
 
-    
+    exercise3();
 
 [3] If we define the median of a sequence as “a number so that exactly as many elements come before it in the sequence as come after it,” fix the program in §3.6.3 so that it always prints out a median. Hint: A median need not be an element of the sequence.
 
+    exercise3();
     
 
 [4] Read a sequence of double values into a vector. Think of each value as the distance between two cities along a given route. Compute and print the total distance (the sum of all distances). Find and print the smallest and greatest distance between two neighboring cities. Find and print the mean distance between two neighboring cities.
+    
+    exercise4();
 
 [5] Write a program to play a numbers guessing game. The user thinks of a number between 1 and 100 and your program asks questions to figure out what the number is (e.g., “Is the number you are thinking of less than 50?”). Your program should be able to identify the number after asking no more than seven questions.
 
+    exercise5();
+
 [6] Write a program that performs as a very simple calculator. Your calculator should be able to handle the four basic math operations – add, subtract, multiply, and divide – on two input values. Your program should prompt the user to enter three arguments: two double values and a character to represent an operation. If the entry arguments are 35.6, 24.1, and '+', the program output should be The sum of 35.6 and 24.1 is 59.7. In Chapter 5 and Chapter 6, we look at a more sophisticated simple calculator.
+
+    Solved in a seperate folder labled "calulator to ensure scalability
 
 [7] Make a vector holding the ten string values “zero”, “one”, . . . “nine”. Use that in a program that converts a digit to its corresponding spelled-out value; e.g., the input 7 gives the output seven. Have the same program, using the same input loop, convert spelled-out numbers into their digit form; e.g., the input seven gives the output 7.
 
+    Solved in a seperate folder labled "calulator to ensure scalability
+
 [8] Modify the “mini calculator” from exercise 6 to accept (just) single-digit numbers written as either digits or spelled out.
 
+    Solved in a seperate folder labled "calulator to ensure scalability
+
 [9] There is an old story that the emperor wanted to thank the inventor of the game of chess and asked the inventor to name his reward. The inventor asked for one grain of rice for the first square, 2 for the second, 4 for the third, and so on, doubling for each of the 64 squares. That may sound modest, but there wasn’t that much rice in the empire! Write a program to calculate how many squares are required to give the inventor at least 1000 grains of rice, at least 1,000,000 grains, and at least 1,000,000,000 grains. You’ll need a loop, of course, and probably an int to keep track of which square you are at, an int to keep the number of grains on the current square, and an int to keep track of the grains on all previous squares. We suggest that you write out the value of all your variables for each iteration of the loop so that you can see what’s going on.
+
+    exercise9();
 
 [10] Try to calculate the number of rice grains that the inventor asked for in exercise 9 above. You’ll find that the number is so large that it won’t fit in an int or a double. Observe what happens when the number gets too large to represent exactly as an int and as a double. What is the largest number of squares for which you can calculate the exact number of grains (using an int)? What is the largest number of squares for which you can calculate the approximate number of grains (using a double)?
 

@@ -1,26 +1,26 @@
-Date : 2025-06-11 06:47:50
+Date : 2025-06-15 12:23:52
 Directory : c:\Users\Jerem\projects\C-INTRO
-Total : 30 files,  1682 codes, 196 comments, 521 blanks, all 2399 lines
+Total : 35 files,  2221 codes, 248 comments, 783 blanks, all 3252 lines
 
 Languages
 +----------+------------+------------+------------+------------+------------+
 | language | files      | code       | comment    | blank      | total      |
 +----------+------------+------------+------------+------------+------------+
-| C++      |         19 |        956 |        196 |        222 |      1,374 |
-| Markdown |         11 |        726 |          0 |        299 |      1,025 |
+| C++      |         20 |      1,227 |        248 |        283 |      1,758 |
+| Markdown |         15 |        994 |          0 |        500 |      1,494 |
 +----------+------------+------------+------------+------------+------------+
 
 Directories
 +--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
 | path                                                                                 | files      | code       | comment    | blank      | total      |
 +--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| .                                                                                    |         30 |      1,682 |        196 |        521 |      2,399 |
-| . (Files)                                                                            |          3 |         41 |          2 |         11 |         54 |
+| .                                                                                    |         35 |      2,221 |        248 |        783 |      3,252 |
+| . (Files)                                                                            |          3 |         78 |          8 |         14 |        100 |
 | Bro code lesson 1                                                                    |          1 |         32 |          5 |         11 |         48 |
 | Bro code lesson 2                                                                    |          4 |         91 |         27 |         34 |        152 |
 | CHP_1_C++_TEXT_BOOK                                                                  |          5 |        204 |          2 |         71 |        277 |
 | CHP_2_C++_TEXT_BOOK                                                                  |          7 |        754 |         50 |        238 |      1,042 |
-| CHP_3_C++                                                                            |          3 |        219 |         24 |         56 |        299 |
+| CHP_3_C++_TEXT_BOOK                                                                  |          8 |        721 |         70 |        315 |      1,106 |
 | Overall concepts from coding                                                         |          6 |        331 |         86 |         98 |        515 |
 | helloworld                                                                           |          1 |         10 |          0 |          2 |         12 |
 +--------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
@@ -46,9 +46,14 @@ Files
 | c:\Users\Jerem\projects\C-INTRO\CHP_2_C++_TEXT_BOOK\CHP_2_REVIEW_QUESTIONS.README.md | Markdown |        146 |          0 |         85 |        231 |
 | c:\Users\Jerem\projects\C-INTRO\CHP_2_C++_TEXT_BOOK\CHP_NOTES.cpp                    | C++      |         75 |         16 |         16 |        107 |
 | c:\Users\Jerem\projects\C-INTRO\CHP_2_C++_TEXT_BOOK\DRILLS.README.md                 | Markdown |         17 |          0 |          3 |         20 |
-| c:\Users\Jerem\projects\C-INTRO\CHP_3_C++\CHP_3_DRILLS.cpp                           | C++      |          5 |          6 |          2 |         13 |
-| c:\Users\Jerem\projects\C-INTRO\CHP_3_C++\CHP_3_NOTES.README.md                      | Markdown |        133 |          0 |         31 |        164 |
-| c:\Users\Jerem\projects\C-INTRO\CHP_3_C++\CHP_3_NOTES.cpp                            | C++      |         81 |         18 |         23 |        122 |
+| c:\Users\Jerem\projects\C-INTRO\CHP_3_C++_TEXT_BOOK\CHP_3_DRILL.README.md            | Markdown |        103 |          0 |         51 |        154 |
+| c:\Users\Jerem\projects\C-INTRO\CHP_3_C++_TEXT_BOOK\CHP_3_DRILLS.cpp                 | C++      |        119 |         28 |         37 |        184 |
+| c:\Users\Jerem\projects\C-INTRO\CHP_3_C++_TEXT_BOOK\CHP_3_EXERCISES.README.md        | Markdown |         29 |          0 |         27 |         56 |
+| c:\Users\Jerem\projects\C-INTRO\CHP_3_C++_TEXT_BOOK\CHP_3_EXERCISES.cpp              | C++      |         93 |         17 |         18 |        128 |
+| c:\Users\Jerem\projects\C-INTRO\CHP_3_C++_TEXT_BOOK\CHP_3_NOTES.README.md            | Markdown |        133 |          0 |         31 |        164 |
+| c:\Users\Jerem\projects\C-INTRO\CHP_3_C++_TEXT_BOOK\CHP_3_NOTES.cpp                  | C++      |        108 |         25 |         28 |        161 |
+| c:\Users\Jerem\projects\C-INTRO\CHP_3_C++_TEXT_BOOK\CHP_3_REVIEW_QUESTIONS.README.md | Markdown |        100 |          0 |         83 |        183 |
+| c:\Users\Jerem\projects\C-INTRO\CHP_3_C++_TEXT_BOOK\NOTES_ON_PHONE.README.md         | Markdown |         36 |          0 |         40 |         76 |
 | c:\Users\Jerem\projects\C-INTRO\NoteFromTheAuthor.README.md                          | Markdown |         19 |          0 |          5 |         24 |
 | c:\Users\Jerem\projects\C-INTRO\Overall concepts from coding\ForLoopProjects.cpp     | C++      |         45 |         51 |         18 |        114 |
 | c:\Users\Jerem\projects\C-INTRO\Overall concepts from coding\ForLoops.README.md      | Markdown |         45 |          0 |         20 |         65 |
@@ -57,7 +62,7 @@ Files
 | c:\Users\Jerem\projects\C-INTRO\Overall concepts from coding\StringLength.cpp        | C++      |         39 |         13 |         18 |         70 |
 | c:\Users\Jerem\projects\C-INTRO\Overall concepts from coding\UserInput.cpp           | C++      |          7 |          0 |          5 |         12 |
 | c:\Users\Jerem\projects\C-INTRO\TERMS_AND_USEFUL.README.md                           | Markdown |         15 |          0 |          4 |         19 |
-| c:\Users\Jerem\projects\C-INTRO\USEFUL_LOGIC_CHUNKS.cpp                              | C++      |          7 |          2 |          2 |         11 |
+| c:\Users\Jerem\projects\C-INTRO\USEFUL_LOGIC_CHUNKS.cpp                              | C++      |         44 |          8 |          5 |         57 |
 | c:\Users\Jerem\projects\C-INTRO\helloworld\HelloWorld.cpp                            | C++      |         10 |          0 |          2 |         12 |
-| Total                                                                                |          |      1,682 |        196 |        521 |      2,399 |
+| Total                                                                                |          |      2,221 |        248 |        783 |      3,252 |
 +--------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
