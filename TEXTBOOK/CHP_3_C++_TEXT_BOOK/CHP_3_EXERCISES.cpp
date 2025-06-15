@@ -16,6 +16,7 @@ void exercise3();
 void exercise4();
 void exercise5();
 void exercise9();
+void exercise10();
 
 //input validators
 bool validInput5(std::string);
@@ -36,7 +37,8 @@ int main(){
     //exercise3();
     //exercise4();
     //exercise5();
-    exercise9();
+    //exercise9();
+    exercise10();
 
 }
 
@@ -162,8 +164,14 @@ void exercise5(){
 void exercise9(){
     long long targetGrains = 1000000;
     
-    std::cout << countSquares(targetGrains) << " squares to hit " << targetGrains << "grains!\n";
+    std::cout << countSquares(targetGrains) + 1 << " squares to hit " << targetGrains << " grains!\n";
     std::cout << "1 * 2 ^ x == " << 1 * pow(2, countSquares(targetGrains)); 
+}
+
+void exercise10(){
+    //63 and not 64, first square is 1 * 2 not 2 squared
+    unsigned long long grains = 1 * pow(2 , 63);//63 and not 64, first square is 1 * 2 not 2 squared
+    std::cout << "Old man wanted " << grains << " grains of rice. WTF\n";
 }
 
 //Exercise 3 and 4 helper functions
@@ -295,13 +303,12 @@ void sortVector(std::vector<double>& v){
 int countSquares(long long targetGrains){
     long long grains = 1;
     int squares = 0;
-    for(squares = 1; grains <= targetGrains; squares++){
-        grains += grains * 2;
-    }
+
+    //starts at 0 and not one because first square is supposed to be 1 * 2, not 2 ^ 2
+    for(squares = 0; 1 * pow(2, squares) < targetGrains; squares++);
+    
     return squares;
 }
-
-
 
 
 
