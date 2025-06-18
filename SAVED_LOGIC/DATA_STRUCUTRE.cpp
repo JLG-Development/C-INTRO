@@ -26,6 +26,11 @@ double avgOfDataStructure(std::vector<double>& v){
     }
     return avg / v.size();
 }
+
+
+//+‐-----------+
+
+
 //custom sort method for data structures 
 void sortVector(std::vector<double>& v){
     if(v.size() < 2)
