@@ -25,6 +25,8 @@ std::vector<std::string> tokenization(std::string userInput);
  # This function accomplishes tokenziation through if tree that basically just checks the userInput string for any invalid characters or combination of characters, if the input is good it will read each token into a vector as its own element. Throws runtime error if invalid input is detected
 
  # If the bottom of the if tree is reached it is assumed that the string is inavlid.
+
+ # Edge case such as (        -85) is handled by removing all spaces before tokenization
     
    
 
@@ -35,7 +37,8 @@ std::vector<std::string> tokenization(std::string userInput);
 +-----------------------------+
 valid token checks
 +-----------------------------+
-
+*NOTE* for simplicity no string modification or referance passing will take place in the valid token checkers. 
+All modification to the equation to ensure valid input will take place in functions that parse the token.
 
 bool isDouble();
 
@@ -47,15 +50,24 @@ bool isDouble();
  # After edge case checks for invalid input, a for loop reads the rest of the double until it is no longer a digit or the first decimal, and will break the loop returning true. IF a second decimal is detected, it will return false. Effectively covering any and all cases surround parsing a double off the front of a string.
 
 
+
+ bool startOfUnaryNeg()
+  # Function "bool startOfUnaryNeg()" simply checks for to ensure the size is greater than 2, and if true check for "(-". This works because at the begining of tokenization we remove all the spaces.
+
+
  
 +-----------------------------+
 parse token functions
 +-----------------------------+
-
+All functions pass referance to modify the string in particular situation where that is necessary. This way a valid double followed by a variable will return back 6975.345 * xyz vs just 6975.345xyz
 
 
 std:string parseDouble();
 
- # This function runs isDouble prior to chopping off a double token off the front of userInput string. So it only continues to read in numbers or decimal under the assumption that the string has already been validating for a proper token.
+ # This function runs isDouble prior to chopping off a double token off the front of userInput string. So it only continues to read in numbers or decimal under the assumption that the string has already been validating for a proper token. In the case that we have some sort of variable after the valid double, it will modify the user input string to add * to the front of the string.
+
+ std:string parseUnaryNeg();
+   
+   # This function will take a string passing the referance, And just
 
  

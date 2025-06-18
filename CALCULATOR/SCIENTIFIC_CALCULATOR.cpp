@@ -9,6 +9,7 @@
 #include <cmath>
 #include <vector>
 #include <iostream>
+#include <regex>
 
 const std::vector<char> invalidCharacters = {
     '`', '~', '!', '@', '#', '$', '_', '=', '{', '}', '[', ']',
@@ -37,8 +38,8 @@ bool validExpression(std::vector<std::string>& v);
 
 
 //custom tokoenizer methods
-/*DONE-READMEDONE**/ std::string parseDouble(std::string); //parses valid doubles in user input
-std::string parseUnaryNeg(std::string); //parses valid unary mathematical expressions in userInput
+/*DONE-READMEDONE**/ std::string parseDouble(std::string&); //parses valid doubles in user input
+/*DONE*/std::string parseUnaryNeg(std::string&); //parses valid unary mathematical expressions in userInput
 std::string parseAdvancedOperation(std::string); //parses valid advanced mathematical operations
 std::string parseFunction(std::string);//parses mathematical function such as cos, sin, tan, etc
 std::string parseVariable(std::string);//parse variables such as 7xyz
@@ -54,6 +55,7 @@ int main(){
     while(true){
         std::string userInput = "";
         std::cout <<"Please enter an expression: ";
+        std::getline(std::cin, userInput);
 
         try{
             //tokenizes user expression stored as a string into individual elements in a vector
@@ -61,8 +63,10 @@ int main(){
             std::cout << "Tokenization successful! \n";
 
             //validates vector-expression to ensure is a valid mathematical expression
-            validExpression(expression);
+            //validExpression(expression);
             std::cout << "Valid Expression\n";
+
+            printVector(expression);
 
             break;
         }catch(const std::runtime_error& e){
@@ -78,40 +82,50 @@ int main(){
 std::vector<std::string> tokenization(std::string userInput){
     std::string token = "";
     std::vector<std::string> v;
+    bool edgeCase = false;
 
     validChars(userInput);
 
+    userInput = std::regex_replace(userInput, std::regex("\\s+"), "");//collapses all equation to no spaces
+
     //edge case where user submits +9 - 4, instead of (+9) - 2 
     //(idk wtf you would type either combo anyways)
-    if(userInput.at(0) == '+')
+    if(userInput.at(0) == '+')//first token is a + just simply to num
         userInput.erase(0,1);
 
+    if(userInput.at(0) == '-'){//first token is a -
+        token = parseUnaryNeg(userInput); //unary neg add in method
+        edgeCase = true;
+    }
     while(userInput != ""){
         if(startOfUnaryNeg(userInput)){//checks for (-num)
+            v.push_back(std::string(1, userInput.at(0)));//adds '(' as its own token
+            //erase '(' so its not parsed as a token with the negative number into the vector
+            userInput.erase(0,1);
+            //parse negative number
             token = parseUnaryNeg(userInput);
         }else if(isUnaryPos(userInput)){//special case to simplify "(+num)" to just (num)
             userInput.erase(1, 1);
-        }else if(isVariable(userInput)){//checks for math variables such as 7xyz
+        }else if(isVariable(userInput)){//checks for math variables such as 7xyz and PI
             token = parseVariable(userInput);
         }else if(isDouble(userInput)){//checks for a valid double token
             token = parseDouble(userInput);
         }else if(isAdvancedOperation(userInput)){//checks for advanced opertors such as <<, >> &, =, %, 
             token = parseAdvancedOperation(userInput);
-        }else if(isOperation(userInput.at(0))){//Checks for simple math operations (/,*,+,-, =)
+        }else if(isOperation(userInput.at(0)) && !edgeCase){//Checks for simple math operations (/,*,+,-, =)
             token = userInput.at(0);
         }else if(isFunction(userInput)){//checks for valid math operations such as sin,cos,tan, <<, etc
             token = parseFunction(userInput);
-        }else if(userInput.at(0) == ' '){
-            token = std::string(1, userInput.at(0));
         }else{
             throw std::runtime_error("Invalid Expression");
             //TODO: fix to have a trace system for the expression for better feed back
         }
-        if(token.at(0) != ' '){
-            v.push_back(token);
-        }
+        std::cout << token << "\n";
+
+        v.push_back(token);
         userInput.erase(0,token.size());
         token = "";
+        edgeCase = false;
 
     }
     return v;
@@ -150,12 +164,12 @@ bool isDouble(std::string userInput){
         return false;
 
     for(int i = 0; i < userInput.size(); i++){
-        if(userInput.at(i) == '.' && decimal)
+        if(userInput.at(i) == '.' && decimal)//if a second decimal is detected return false
             return false;
-        if(userInput.at(i) == '.')
+        if(userInput.at(i) == '.')//track first decimal once detected
             decimal = true;
 
-        if(i != 0 && (!isDigit(userInput.at(i)) && userInput.at(i) != '.'))
+        if(i != 0 && (!isDigit(userInput.at(i)) && userInput.at(i) != '.'))//break once something else is detected
             break;
         
     }
@@ -165,7 +179,7 @@ bool isDouble(std::string userInput){
 
 //is the next char being checked an integer
 bool isDigit(char ch){
-    if(ch > '0' && ch < '9'){
+    if(ch >= '0' && ch <= '9'){
         return true;
     }
     return false;
@@ -175,8 +189,9 @@ bool isDigit(char ch){
 bool startOfUnaryNeg(std::string userInput){
     if(userInput.size() < 2)
         return false;
-    
-    return userInput.at(0) == '(' && userInput.at(1) == '-';
+    if(userInput.at(0) == '(' && userInput.at(1) == '-')
+        return true;
+    return false;
 }
 
 //safe gaurd for checking unary postives surrounded by parenthesis(IDK why you would input (+80) anyways)
@@ -196,20 +211,41 @@ bool isOperation(char op){
     return false;
 }
 
+
+
+
+/*TODO*/ bool isAdvancedOperation(std::string){
+    return false;
+}
+
+/*TODO*/ bool isFunction(std::string){//parse things such as cin, cos, tan, etc
+    return false;
+}
+
+/*TODO*/ bool isVariable(std::string){//parse variable such as 7xyz
+    return false;
+}
+
 //+------------------------------------------+
 //PARSING FUNCTIONS
 //+------------------------------------------+
 
 
 //chops a valid double token off the front of the userInput string.
-std::string parseDouble(std::string userInput){
+std::string parseDouble(std::string& userInput){
     bool decimal = false;
     std::string newToken = "";
 
     for(int i = 0; i < userInput.size(); i++){
         if(isDigit(userInput.at(i)) || userInput.at(i) == '.'){//pull all digits
             newToken += userInput.at(i);
-        }else{
+        }/*else if((userInput.at(i) >= 'a' && userInput.at(i) <= 'z') || (userInput.at(i) >= 'A' && userInput.at(i) <= 'Z')){
+            userInput = "*" + userInput; 
+            break;
+
+            //Needs to be fixed, User input still contains the double at this point and will throw a
+            //operation in fron of it instead of on the back of the double
+        }*/else{
             break;
         }
         
@@ -218,6 +254,42 @@ std::string parseDouble(std::string userInput){
     
 }
 
+//chops off valid unary negative vars, nums, etc
+std::string parseUnaryNeg(std::string& userInput){
+    std::string token = "";
+    userInput.erase(0,1);//erases '-' and adds it back after userInput is tokenized
+
+    if(isVariable(userInput)){//checks for math variables such as 7xyz
+        token = "-" + parseVariable(userInput);
+    }else if(isDouble(userInput)){//checks for a valid double token
+        token = "-" + parseDouble(userInput);
+    }else if(isAdvancedOperation(userInput)){//checks for advanced opertors such as <<, >> &, =, %, 
+        token = "-" + parseAdvancedOperation(userInput);
+    }else if(isFunction(userInput)){//checks for valid math operations such as sin,cos,tan, <<, etc
+        token = "-" + parseFunction(userInput);
+    }
+    userInput = '-' + userInput;
+    return token;
+    
+}
+
+
+
+
+
+
+//not done
+/*TODO*/std::string parseAdvancedOperation(std::string){ //parses valid advanced mathematical operations
+    return "";
+}
+
+/*TODO*/std::string parseFunction(std::string){//parses mathematical function such as cos, sin, tan, etc
+    return "";
+}
+
+/*TODO*/std::string parseVariable(std::string){
+    return "";
+}
 
 //+------------------------------------------+
 //Other helper functions
