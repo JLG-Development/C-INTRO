@@ -1,23 +1,23 @@
 # Diff Summary
 
-Date : 2025-06-14 17:18:00
+Date : 2025-06-18 13:53:00
 
 Directory c:\\Users\\Jerem\\projects\\C-INTRO
 
-Total : 5 files,  118 codes, 21 comments, 70 blanks, all 209 lines
+Total : 2 files,  58 codes, 7 comments, 24 blanks, all 89 lines
 
 [Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Markdown | 3 | 61 | 0 | 50 | 111 |
-| C++ | 2 | 57 | 21 | 20 | 98 |
+| C++ | 1 | 50 | 7 | 20 | 77 |
+| Markdown | 1 | 8 | 0 | 4 | 12 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 5 | 118 | 21 | 70 | 209 |
-| CHP_3_C++_TEXT_BOOK | 5 | 118 | 21 | 70 | 209 |
+| . | 2 | 58 | 7 | 24 | 89 |
+| CALCULATOR | 2 | 58 | 7 | 24 | 89 |
 
 [Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)

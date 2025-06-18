@@ -40,9 +40,9 @@ bool validExpression(std::vector<std::string>& v);
 //custom tokoenizer methods
 /*DONE-READMEDONE**/ std::string parseDouble(std::string&); //parses valid doubles in user input
 /*DONE*/std::string parseUnaryNeg(std::string&); //parses valid unary mathematical expressions in userInput
-std::string parseAdvancedOperation(std::string); //parses valid advanced mathematical operations
-std::string parseFunction(std::string);//parses mathematical function such as cos, sin, tan, etc
-std::string parseVariable(std::string);//parse variables such as 7xyz
+std::string parseAdvancedOperation(std::string&); //parses valid advanced mathematical operations
+std::string parseFunction(std::string&);//parses mathematical function such as cos, sin, tan, etc
+std::string parseVariable(std::string&);//parse variables such as 7xyz
 
 //helper functions
 /*DONE*/ void printVector(std::vector<std::string>& v); //prints the expresion stored in the main vector
@@ -83,6 +83,7 @@ std::vector<std::string> tokenization(std::string userInput){
     std::string token = "";
     std::vector<std::string> v;
     bool edgeCase = false;
+    int num = 0;
 
     validChars(userInput);
 
@@ -106,8 +107,6 @@ std::vector<std::string> tokenization(std::string userInput){
             token = parseUnaryNeg(userInput);
         }else if(isUnaryPos(userInput)){//special case to simplify "(+num)" to just (num)
             userInput.erase(1, 1);
-        }else if(isVariable(userInput)){//checks for math variables such as 7xyz and PI
-            token = parseVariable(userInput);
         }else if(isDouble(userInput)){//checks for a valid double token
             token = parseDouble(userInput);
         }else if(isAdvancedOperation(userInput)){//checks for advanced opertors such as <<, >> &, =, %, 
@@ -116,17 +115,18 @@ std::vector<std::string> tokenization(std::string userInput){
             token = userInput.at(0);
         }else if(isFunction(userInput)){//checks for valid math operations such as sin,cos,tan, <<, etc
             token = parseFunction(userInput);
+        }else if(isVariable(userInput)){//checks for math variables such as 7xyz and PI
+            token = parseVariable(userInput);
         }else{
             throw std::runtime_error("Invalid Expression");
             //TODO: fix to have a trace system for the expression for better feed back
         }
-        std::cout << token << "\n";
+        //std::cout << token << "\n";
 
         v.push_back(token);
         userInput.erase(0,token.size());
         token = "";
         edgeCase = false;
-
     }
     return v;
 }
@@ -211,25 +211,50 @@ bool isOperation(char op){
     return false;
 }
 
+//function ensures a valid variable, but also ensure valid stacks variables such as xyz vs xxxx
+bool isVariable(std::string userInput){//parse variable such as 7xyz
+    std::string check = "";//for checking for duplicates
+    
+    if(!(userInput.at(0) >= 'a' && userInput.at(0) <= 'z')){//if not letter
+        return false;
+    }
+
+    check += userInput.at(0);//adds first character if valid to check
+
+    for(int i = 1; i < userInput.length(); i++){//iterate of user input until no longer a variable or bad input
+        for(int j = 0; j < check.length(); j++){//iterate of check looking for duplicates
+            if(check.at(j) == userInput.at(i)){//if there is a repeated variable (i.e xxx) return false
+                return false;
+            }
+        }
+        if(isDigit(userInput.at(i))){//checks for edge case 54xyz5
+            return false;
+        }
+        if((userInput.at(i) >= 'a' && userInput.at(i) <= 'z')){//adds next variable to check to ensure no repeats
+            check += userInput.at(i);
+        }else{
+            break;
+        }
+    }
+     return true;
+    
+}
 
 
 
-/*TODO*/ bool isAdvancedOperation(std::string){
+
+/*TODO*/ bool isAdvancedOperation(std::string userInput){
     return false;
 }
 
-/*TODO*/ bool isFunction(std::string){//parse things such as cin, cos, tan, etc
+/*TODO*/ bool isFunction(std::string userInput){//parse things such as cin, cos, tan, etc
     return false;
 }
 
-/*TODO*/ bool isVariable(std::string){//parse variable such as 7xyz
-    return false;
-}
 
 //+------------------------------------------+
 //PARSING FUNCTIONS
 //+------------------------------------------+
-
 
 //chops a valid double token off the front of the userInput string.
 std::string parseDouble(std::string& userInput){
@@ -239,13 +264,13 @@ std::string parseDouble(std::string& userInput){
     for(int i = 0; i < userInput.size(); i++){
         if(isDigit(userInput.at(i)) || userInput.at(i) == '.'){//pull all digits
             newToken += userInput.at(i);
-        }/*else if((userInput.at(i) >= 'a' && userInput.at(i) <= 'z') || (userInput.at(i) >= 'A' && userInput.at(i) <= 'Z')){
-            userInput = "*" + userInput; 
+        }else if((userInput.at(i) >= 'a' && userInput.at(i) <= 'z') || (userInput.at(i) >= 'A' && userInput.at(i) <= 'Z')){
+            userInput.insert(newToken.length(), "*");
             break;
 
             //Needs to be fixed, User input still contains the double at this point and will throw a
             //operation in fron of it instead of on the back of the double
-        }*/else{
+        }else{
             break;
         }
         
@@ -279,16 +304,26 @@ std::string parseUnaryNeg(std::string& userInput){
 
 
 //not done
-/*TODO*/std::string parseAdvancedOperation(std::string){ //parses valid advanced mathematical operations
+/*TODO*/std::string parseAdvancedOperation(std::string&){ //parses valid advanced mathematical operations
     return "";
 }
 
-/*TODO*/std::string parseFunction(std::string){//parses mathematical function such as cos, sin, tan, etc
-    return "";
+/*TODO*/std::string parseFunction(std::string& userInput){//parses mathematical function such as cos, sin, tan, etc
+   //std::string newToken = "";
+   return "";
+
+
 }
 
-/*TODO*/std::string parseVariable(std::string){
-    return "";
+/*TODO*/std::string parseVariable(std::string& userInput){
+    std::string newToken = std::string(1,userInput.at(0));
+    if(userInput.length() >= 2){
+        if(userInput.at(1) >= 'a' && userInput.at(1) <= 'z'){
+            userInput.insert(1, "*");
+        }
+    }
+
+    return newToken;
 }
 
 //+------------------------------------------+

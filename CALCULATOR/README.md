@@ -54,6 +54,9 @@ bool isDouble();
  bool startOfUnaryNeg()
   # Function "bool startOfUnaryNeg()" simply checks for to ensure the size is greater than 2, and if true check for "(-". This works because at the begining of tokenization we remove all the spaces.
 
+  bool isVariable()
+   # Function "bool isVariable()" checks the first letter of user input to see if it is a valid letter. 
+
 
  
 +-----------------------------+
