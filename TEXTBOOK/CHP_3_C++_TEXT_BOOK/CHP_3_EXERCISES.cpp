@@ -174,6 +174,10 @@ void exercise10(){
     std::cout << "Old man wanted " << grains << " grains of rice. WTF\n";
 }
 
+void exercise11(){
+
+}
+
 //Exercise 3 and 4 helper functions
 //+-------------------------------------------------------+
 

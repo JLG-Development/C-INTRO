@@ -46,7 +46,11 @@
 
 [10] Try to calculate the number of rice grains that the inventor asked for in exercise 9 above. You’ll find that the number is so large that it won’t fit in an int or a double. Observe what happens when the number gets too large to represent exactly as an int and as a double. What is the largest number of squares for which you can calculate the exact number of grains (using an int)? What is the largest number of squares for which you can calculate the approximate number of grains (using a double)?
 
+    exercise10();
+
 [11] Write a program that plays the game “Rock, Paper, Scissors.” If you are not familiar with the game do some research (e.g., on the Web using Google). Research is a common task for programmers. Use a switch-statement to solve this exercise. Also, the machine should give random answers (i.e., select the next rock, paper, or scissors randomly). Real randomness is too hard to provide just now, so just build a vector with a sequence of values to be used as “the next value.” If you build the vector into the program, it will always play the same game, so maybe you should let the user enter some values. Try variations to make it less easy for the user to guess which move the machine will make next.
+
+    
 
 [12] Create a program to find all the prime numbers between 1 and 100. One way to do this is to write a function that will check if a number is prime (i.e., see if the number can be divided by a prime number smaller than itself) using a vector of primes in order (so that if the vector is called primes, primes[0]==2, primes[1]==3, primes[2]==5, etc.). Then write a loop that goes from 1 to 100, checks each number to see if it is a prime, and stores each prime found in a vector. Write another loop that lists the primes you found. You might check your result by comparing your vector of prime numbers with primes. Consider 2 the first prime.
 
