@@ -15,28 +15,36 @@ const std::vector<char> invalidCharacters = {
     '\\', '|', ':', ';', '"', '\'', '<', '>', ',', '?'
 };
 
+const std::vector<char> validOperations = {
+    '=', '+', '-', '/', '*', '(', ')', 
+};
+
 //main methods
-std::vector<std::string> tokenization(std::string userInput);
+/*DONE-READMEDONE*/ void validChars(std::string);
+/*DONE-READMEDONE*/ std::vector<std::string> tokenization(std::string userInput);
+bool validExpression(std::vector<std::string>& v);
 
 
-//helper functions
-bool isDigit(char ch);
-void printVector(std::vector<std::string>& v); //prints the expresion stored in the main vector
-bool isOperation(char op);
-bool isAdvancedOperation(std::string);
-bool isFunction(std::string);//parse things such as cin, cos, tan, etc
-bool isVariable(std::string);//parse variable such as 7xyz
-bool isDouble(std::string);
-bool validChars(std::string);
+//valid token checks
+/*DONE*/ bool isDigit(char ch);
+/*DONE*/ bool isOperation(char op);
+/*TODO*/ bool isAdvancedOperation(std::string);
+/*TODO*/ bool isFunction(std::string);//parse things such as cin, cos, tan, etc
+/*TODO*/ bool isVariable(std::string);//parse variable such as 7xyz
+/*DONE-READMEDONE*/ bool isDouble(std::string);
+/*DONE*/ bool startOfUnaryNeg(std::string);
+/*DONE*/ bool isUnaryPos(std::string);
+
 
 //custom tokoenizer methods
-std::string parseDouble(std::string); //parses valid doubles in user input
+/*DONE-READMEDONE**/ std::string parseDouble(std::string); //parses valid doubles in user input
 std::string parseUnaryNeg(std::string); //parses valid unary mathematical expressions in userInput
 std::string parseAdvancedOperation(std::string); //parses valid advanced mathematical operations
 std::string parseFunction(std::string);//parses mathematical function such as cos, sin, tan, etc
 std::string parseVariable(std::string);//parse variables such as 7xyz
 
-
+//helper functions
+/*DONE*/ void printVector(std::vector<std::string>& v); //prints the expresion stored in the main vector
 
 
 int main(){
@@ -48,12 +56,17 @@ int main(){
         std::cout <<"Please enter an expression: ";
 
         try{
-
+            //tokenizes user expression stored as a string into individual elements in a vector
             expression = tokenization(userInput);
             std::cout << "Tokenization successful! \n";
+
+            //validates vector-expression to ensure is a valid mathematical expression
+            validExpression(expression);
+            std::cout << "Valid Expression\n";
+
             break;
         }catch(const std::runtime_error& e){
-            std::cerr << "Tokenizer Error: " << e.what() << "\n";
+            std::cerr << "Invalid mathematical expression: " << e.what() << "\n";
         }
 
     }
@@ -62,29 +75,34 @@ int main(){
 
 }
 
-
 std::vector<std::string> tokenization(std::string userInput){
     std::string token = "";
     std::vector<std::string> v;
-    if(!validChars(userInput)){
-        throw std::runtime_error("Invalid characters in expresion");
-    }
-    
+
+    validChars(userInput);
+
+    //edge case where user submits +9 - 4, instead of (+9) - 2 
+    //(idk wtf you would type either combo anyways)
+    if(userInput.at(0) == '+')
+        userInput.erase(0,1);
+
     while(userInput != ""){
-        if(userInput.at(0) == '(' && userInput.at(1) == '-'){
+        if(startOfUnaryNeg(userInput)){//checks for (-num)
             token = parseUnaryNeg(userInput);
-        }else if(isVariable(userInput)){
+        }else if(isUnaryPos(userInput)){//special case to simplify "(+num)" to just (num)
+            userInput.erase(1, 1);
+        }else if(isVariable(userInput)){//checks for math variables such as 7xyz
             token = parseVariable(userInput);
-        }else if(isDouble(userInput)){
+        }else if(isDouble(userInput)){//checks for a valid double token
             token = parseDouble(userInput);
-        }else if(isAdvancedOperation(userInput)){
+        }else if(isAdvancedOperation(userInput)){//checks for advanced opertors such as <<, >> &, =, %, 
             token = parseAdvancedOperation(userInput);
-        }else if(isOperation(userInput.at(0))){
+        }else if(isOperation(userInput.at(0))){//Checks for simple math operations (/,*,+,-, =)
             token = userInput.at(0);
-        }else if(isFunction(userInput)){
+        }else if(isFunction(userInput)){//checks for valid math operations such as sin,cos,tan, <<, etc
             token = parseFunction(userInput);
         }else if(userInput.at(0) == ' '){
-            token = userInput.at(0);
+            token = std::string(1, userInput.at(0));
         }else{
             throw std::runtime_error("Invalid Expression");
             //TODO: fix to have a trace system for the expression for better feed back
@@ -96,54 +114,118 @@ std::vector<std::string> tokenization(std::string userInput){
         token = "";
 
     }
-}
-
-bool isDouble(std::string userInput){
-    bool decimal = false;
-    bool validInput = true;
-
-    for(int i = 0; i < userInput.size(); i++){
-        if(!(isDigit(userInput.at(i)))){//pull all digits
-            validInput = false;
-        }else if(userInput.at(i) == '.' && !(decimal)){//pull decimals until no longer valid
-            decimal = true;
-            validInput = true;
-        }else if(userInput.at(0) == '.' && decimal){//end of valid double
-            return false;
-        }
-
-    }
+    return v;
 }
 
 
-//
-bool validChars(std::string userInput){
+//+-----------------------------------------+
+//VALID INPUT CHECKS
+//+-----------------------------------------+
+
+
+
+//checks for invalid characters input
+void validChars(std::string userInput){
     for(int ch = 0; ch < invalidCharacters.size(); ch++){
         for(int i = 0; i < userInput.size(); i++){
             if(userInput.at(i) == ch){
-                return false;
+                throw std::runtime_error("Invalid characters input!\n");
+                
             }
         }
     }
+}
+
+//is the next token a valid double
+bool isDouble(std::string userInput){
+    bool decimal = false;
+
+    if(userInput.at(0) == '.' && userInput.size() < 2) // invalid input such as '.'
+        return false;
+
+    if(!isDigit(userInput.at(0)) && userInput.at(0) != '.')//first letter is not a digit or a dot return false
+        return false;
+
+    if(userInput.at(0) == '.' && !isDigit(userInput.at(1))) //a decimal followed by anything but a digit is denied
+        return false;
+
+    for(int i = 0; i < userInput.size(); i++){
+        if(userInput.at(i) == '.' && decimal)
+            return false;
+        if(userInput.at(i) == '.')
+            decimal = true;
+
+        if(i != 0 && (!isDigit(userInput.at(i)) && userInput.at(i) != '.'))
+            break;
+        
+    }
+
     return true;
 }
 
+//is the next char being checked an integer
+bool isDigit(char ch){
+    if(ch > '0' && ch < '9'){
+        return true;
+    }
+    return false;
+}
+
+//safe guard for out of bouds check for unary negatives
+bool startOfUnaryNeg(std::string userInput){
+    if(userInput.size() < 2)
+        return false;
+    
+    return userInput.at(0) == '(' && userInput.at(1) == '-';
+}
+
+//safe gaurd for checking unary postives surrounded by parenthesis(IDK why you would input (+80) anyways)
+bool isUnaryPos(std::string userInput){
+    if(userInput.size() < 2)//cant be unary postive if string only has 2 char left
+        return false;
+    //double check for "(+" at start of string followed by valid double
+    return userInput.at(0) == '(' && userInput.at(1) == '+' && isDouble(userInput.substr(2));
+}
+
+//checks to see if given characters represents a valid mathematical operation
+bool isOperation(char op){
+    for(char ch : validOperations){
+        if(ch == op)
+            return true;
+    }
+    return false;
+}
+
+//+------------------------------------------+
+//PARSING FUNCTIONS
+//+------------------------------------------+
+
+
+//chops a valid double token off the front of the userInput string.
 std::string parseDouble(std::string userInput){
     bool decimal = false;
     std::string newToken = "";
 
     for(int i = 0; i < userInput.size(); i++){
-        if(isDigit(userInput.at(i))){//pull all digits
+        if(isDigit(userInput.at(i)) || userInput.at(i) == '.'){//pull all digits
             newToken += userInput.at(i);
-        }else if(userInput.at(i) == '.' && !(decimal)){//pull decimals until no longer valid
-            decimal = true;
-            newToken += userInput.at(i);
-        }else{//end of valid double
+        }else{
             break;
         }
+        
     }
     return newToken;
     
 }
 
 
+//+------------------------------------------+
+//Other helper functions
+//+------------------------------------------+
+
+//print the vector to show the expression being evaulated or tokenized
+void printVector(std::vector<std::string>& v){
+    for(std::string str : v){
+        std::cout << str << " ";
+    }
+}
